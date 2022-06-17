@@ -69,30 +69,6 @@ public class BookstoreTests {
     }
 
     @Test
-    void getTokenTest() {
-        String data = "{ \"userName\": \"alex\", " +
-                "\"password\": \"asdsad#frew_DFS2\" }";
-
-        String token =
-                given()
-                        .contentType(JSON)
-                        .body(data)
-                        .log().uri()
-                        .log().body()
-                        .when()
-                        .post("/Account/v1/GenerateToken")
-                        .then()
-                        .log().status()
-                        .log().body()
-                        .statusCode(200)
-                        .body("status", is("Success"))
-                        .body("result", is("User authorized successfully."))
-                        .extract().path("token");
-
-        System.out.println("Token: " + token);
-    }
-
-    @Test
     void generateTokenWithAllureListenerTest() {
         String data = "{ \"userName\": \"alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
